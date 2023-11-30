@@ -1,0 +1,45 @@
+h1{
+    font-family: 'caprasimo';
+    font-size: 120px;
+    font-weight: 100px;
+    color: #CC406C;
+    text-align: center;
+    filter: drop-shadow(0 0 0.04rem crimson);
+    filter: drop-shadow(7.5px 2.5px 1px #4444dd39);
+
+}
+
+h2{
+    font-family: 'caprasimo';
+    font-size: 50px;
+    font-weight: 100px;
+    color: #CC406C;
+    filter: drop-shadow(3.5px 2.5px 1px #4444dd39);
+
+}
+
+
+body{
+    background-color: #B6CDDF;
+}
+
+p{
+    font-size: 25px;
+    text-align: center;
+    font-family: 'belanosima';
+    color: #2E2C51
+}
+
+a{
+    font-size: 20px;
+    text-align: center;
+    font-family: 'belanosima';
+    color: #2E2C51
+}
+
+label{
+    font-size: 15px;
+    text-align: center;
+    font-family: 'belanosima';
+    color: #2E2C51
+}

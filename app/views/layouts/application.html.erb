@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DictionaryApp</title>
+    <title>Dictionary App</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Belanosima', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Caprasimo', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
 
@@ -24,8 +26,10 @@
       <% else %>
         <%= link_to "Log in", new_user_session_path%>
         <%= link_to "Sign Up", new_user_registration_path%>
+
         <%end%>
     </div>
+
     <%= yield %>
   </body>
 

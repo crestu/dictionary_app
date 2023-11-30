@@ -9,6 +9,12 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
+  resources :lists, only: [:show]  # Add other routes as needed
+  resources :words, only: [:show]
+
+  get "words", to: "words#show"
+
+  get "lists", to: "lists#show"
   # devise_for :users
   root to: "home#index"
 
