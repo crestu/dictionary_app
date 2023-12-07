@@ -1,3 +1,7 @@
-<% @lists.each do |list| %>
-  <h2><%= link_to list.list_name, list_path(list) %></h2>
-<% end %>
+<h1>List Words</h1>
+<ul>
+  <% @words.each do |word| %>
+     <%= word.word.upcase %> <%= word.definition %> 
+  <% end %>
+</ul>
+

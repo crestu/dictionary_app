@@ -9,13 +9,30 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  resources :lists, only: [:show]  # Add other routes as needed
+  resources :lists # Add other routes as needed
   resources :words, only: [:show]
 
   get "words", to: "words#show"
 
   get "lists", to: "lists#show"
+
+  get 'search', to: 'dictionary#show'
+
+  get 'search', to: 'dictionary#search', as: 'dictionary_search'
+
+
+  post '/dictionary/add_to_list', to: 'dictionary#add_to_list', as: 'add_to_list'
+
+  get '/dictionary/word_list', to: 'dictionary#word_list', as: 'word_list'
+
+  get 'home', to: "home#index"
+
+  post '/add_to_dictionary', to: 'words#add_to_dictionary'
+
+
+
   # devise_for :users
   root to: "home#index"
+
 
 end

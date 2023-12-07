@@ -15,11 +15,12 @@
 
 
   <body>
+   
   
     <p class= "notice"><%= notice%></p>
     <p ckass = "alert"><%= alert %></p>
 
-    <div>
+    <div class = "profile">
       <%if user_signed_in? %>
         <%= link_to "Profile", edit_user_registration_path%>
         <%= button_to "Log out",destroy_user_session_path, method: :delete %>
@@ -29,6 +30,15 @@
 
         <%end%>
     </div>
+
+     <nav>
+      <ul>
+        <li><a href="home#index">Home</a></li>
+        <li><a href="search#index">Search</a></li>
+        <li><a href="lists#index">Lists</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
 
     <%= yield %>
   </body>

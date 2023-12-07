@@ -7,6 +7,7 @@ class WordsController < ApplicationController
   
     def show
         @word = Word.find(params[:id])
+
     end
   
     def new
@@ -14,12 +15,20 @@ class WordsController < ApplicationController
     end
   
     def create
-      @word = Word.new(word_params)
+    #   @word = Word.new(word_params)
+    #   if @word.save
+    #     redirect_to @word, notice: 'Word was successfully created.'
+    #   else
+    #     render :new
+    #   end
+        @list=  List.find(params[:list_id])
+        @word = @list.words.build(word_params)
       if @word.save
         redirect_to @word, notice: 'Word was successfully created.'
       else
         render :new
       end
+    
     end
   
     def edit
@@ -37,6 +46,26 @@ class WordsController < ApplicationController
       @word.destroy
       redirect_to words_url, notice: 'Word was successfully destroyed.'
     end
+
+
+    def add_to_dictionary
+      selected_word = params[:word]
+      selected_definition = params[:selected_definition]
+  
+      word = Word.new(word: selected_word, definition: selected_definition)
+
+      puts "Selected Word: #{selected_word}"
+      puts "Selected Definition: #{selected_definition}"
+
+      if word.save
+        flash[:success] = "Word added to dictionary successfully!"
+        redirect_to root_path
+      else
+        flash[:error] = "Error adding word to dictionary"
+        redirect_to root_path
+      end
+    end
+
   
     private
   
@@ -50,4 +79,6 @@ class WordsController < ApplicationController
     def word_params
       params.require(:word).permit(:definition, :word_id)
     end
+
+
 end

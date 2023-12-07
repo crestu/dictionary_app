@@ -1,0 +1,11 @@
+<h1>Definitions for <%= @word %></h1>
+
+<% if @definitions.present? %>
+  <ul>
+    <% @definitions.each do |definition| %>
+      <li><%= definition['definition'] %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No definitions found for <%= @word %></p>
+<% end %>

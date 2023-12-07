@@ -7,6 +7,10 @@ h1{
     filter: drop-shadow(0 0 0.04rem crimson);
     filter: drop-shadow(7.5px 2.5px 1px #4444dd39);
 
+    padding-bottom: 0;
+
+    margin-top: 0px;
+
 }
 
 h2{
@@ -16,8 +20,62 @@ h2{
     color: #CC406C;
     filter: drop-shadow(3.5px 2.5px 1px #4444dd39);
 
+    text-align: center;
+    margin-top: -60px;
+
 }
 
+h3{
+    font-family: 'belanosima';
+    filter: drop-shadow(1.5px 0.5px 0.5px #9090c990);
+    font-size: 35px;
+
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    margin-top: -55px;
+    margin-bottom: 30px;
+
+  }
+  
+  nav li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 35px;
+  }
+  
+  nav a:hover {
+    border-bottom: 2px solid white;
+  }
+
+
+li{
+    font-family: 'belanosima';
+    font-size: 23px;
+    display: grid;
+}
+
+li:hover{
+    /* border-bottom: 2px solid white; */
+    position: relative;
+  }
+
+ 
+ 
+.profile{
+    text-align: right;
+    margin: 45px;
+}
 
 body{
     background-color: #B6CDDF;
@@ -43,3 +101,15 @@ label{
     font-family: 'belanosima';
     color: #2E2C51
 }
+
+label:hover{
+  text-decoration: underline; 
+}
+
+input[type="radio"] {
+margin-left: -1400px;
+margin-top: 1px;
+}
+
+
+

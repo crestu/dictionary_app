@@ -1,0 +1,38 @@
+<h1>Dictionary</h1>
+<h2>Definitions for... <%= @word %>!</h2>
+
+<%= form_with(url: dictionary_search_path, method: :get) do |form| %>
+  <%= form.text_field :word, placeholder: 'Enter new word!' %>
+  <%= form.submit 'Search' %>
+<% end %>
+
+<% if @word.present? %>
+  <%= form_tag("/add_to_dictionary", method: "post") do %>
+    <% if @definition.present? %>
+      <ul>
+        <% @definition.each do |part_of_speech, definitions| %>
+          <li>
+            <h3><%= part_of_speech.capitalize %>:</h3>
+            <ul>
+              <% definitions.each_with_index do |definition, index| %>
+                <li>
+                   <%= radio_button_tag("selected_definition", "#{definition}", false) %>
+                    <%= "#{index + 1}. #{definition}" %>
+                </li>
+              <% end %>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+        <%= hidden_field_tag :word, @word %>
+        <%= submit_tag 'Add to Dictionary' %>
+      <%= form_with(url: add_to_list_path, method: :post, params: { word: @word }) do |form| %>
+        <%= form.submit 'Add Word to List' %>
+      <% end %>
+    <% else %>
+      <p>No definitions found for <%= @word %></p>
+    <% end %>
+  <% end %>
+
+
+<% end %>

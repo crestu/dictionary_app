@@ -1,9 +1,9 @@
 <h1><%= @list.list_name %></h1>
 
+<% @words.each do |word| %>
+  <p><strong><%= word.word %></strong>: <%= word.definition %></p>
+<% end %>
 
 <p>Created by: <%= @list.user.email %></p>
 
-
-
-
-
+<%= link_to 'Back to Lists', lists_path %>
