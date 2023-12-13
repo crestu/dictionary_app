@@ -24,7 +24,7 @@ class WordsController < ApplicationController
         @list=  List.find(params[:list_id])
         @word = @list.words.build(word_params)
       if @word.save
-        redirect_to @word, notice: 'Word was successfully created.'
+        redirect_to lists_url, notice: 'Word was successfully created.'
       else
         render :new
       end
@@ -44,7 +44,7 @@ class WordsController < ApplicationController
   
     def destroy
       @word.destroy
-      redirect_to words_url, notice: 'Word was successfully destroyed.'
+      redirect_to lists_url, notice: 'Word was successfully deleted.'
     end
 
 
@@ -52,14 +52,15 @@ class WordsController < ApplicationController
       selected_word = params[:word]
       selected_definition = params[:selected_definition]
   
-      word = Word.new(word: selected_word, definition: selected_definition)
+      @word = Word.new(word: selected_word, definition: selected_definition)
+      @word.lists << List.find(params[:list][:id])
 
       puts "Selected Word: #{selected_word}"
       puts "Selected Definition: #{selected_definition}"
 
-      if word.save
+      if @word.save
         flash[:success] = "Word added to dictionary successfully!"
-        redirect_to root_path
+        redirect_to lists_url
       else
         flash[:error] = "Error adding word to dictionary"
         redirect_to root_path
@@ -77,7 +78,7 @@ class WordsController < ApplicationController
     end
   
     def word_params
-      params.require(:word).permit(:definition, :word_id)
+    params.require(:word).permit(:definition, :word_id, :list_id)
     end
 
 

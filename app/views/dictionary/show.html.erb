@@ -24,15 +24,24 @@
           </li>
         <% end %>
       </ul>
+
+      <div class="field">
+        <%= collection_select(:list, :id, @current_user.lists, :id, :list_name, prompt: 'Select a List') %>
+      </div> 
+
+
+
         <%= hidden_field_tag :word, @word %>
-        <%= submit_tag 'Add to Dictionary' %>
+        <%= submit_tag 'Add to List !' %>
       <%= form_with(url: add_to_list_path, method: :post, params: { word: @word }) do |form| %>
-        <%= form.submit 'Add Word to List' %>
+
       <% end %>
+
     <% else %>
       <p>No definitions found for <%= @word %></p>
     <% end %>
   <% end %>
 
-
 <% end %>
+
+

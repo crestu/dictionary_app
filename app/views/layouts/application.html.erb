@@ -10,6 +10,9 @@
     <%= javascript_importmap_tags %>
     <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Belanosima', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Caprasimo', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
   </head>
 
 
@@ -36,13 +39,11 @@
         <li><a href="home#index">Home</a></li>
         <li><a href="search#index">Search</a></li>
         <li><a href="lists#index">Lists</a></li>
-        <li><a href="#">Contact</a></li>
       </ul>
     </nav>
 
     <%= yield %>
   </body>
-
 
 
 </html>

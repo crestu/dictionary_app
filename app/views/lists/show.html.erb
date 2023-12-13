@@ -1,9 +1,18 @@
 <h1><%= @list.list_name %></h1>
 
 <% @words.each do |word| %>
-  <p><strong><%= word.word %></strong>: <%= word.definition %></p>
+  <ul><strong><%= word.word %></strong>: <em><%= word.definition %></em><br></ul>
+    <%= link_to "Delete", word_path(word), data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+    } %>
+    <br>
 <% end %>
 
-<p>Created by: <%= @list.user.email %></p>
+<br>
+<br>
+<%= link_to 'Lists', lists_path %>
 
-<%= link_to 'Back to Lists', lists_path %>
+<%= link_to 'Search', search_path %>
+
+
