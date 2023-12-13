@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_29_175822) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_07_173441) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,9 +48,12 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_29_175822) do
     t.text "definition"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "list_id"
+    t.index ["list_id"], name: "index_words_on_list_id"
   end
 
   add_foreign_key "list_words", "lists"
   add_foreign_key "list_words", "words"
   add_foreign_key "lists", "users"
+  add_foreign_key "words", "lists"
 end

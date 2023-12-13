@@ -2,14 +2,14 @@ class ListsController < ApplicationController
   before_action :set_list, only: [:show, :edit, :update, :destroy]
 
   def index
-    # @lists = List.all
+    @lists = List.all
     @words = Word.all
 
   end
 
   def show
-    # @list = List.find(params[:id])
-    # @words = @list.words  
+    @list = List.find(params[:id])
+    @words = @list.words  
     # ????
   end
 
@@ -18,10 +18,10 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = List.new(list_params)
+    @list = current_user.lists.build(list_params)
 
     if @list.save
-      redirect_to @list, notice: 'List was successfully created.'
+      redirect_to list_path(@list), notice: 'List was successfully created.'
     else
       render :new
     end
@@ -43,9 +43,8 @@ class ListsController < ApplicationController
 
   def destroy
     @list = List.find(params[:id])
-    redirect_to root_path
     @list.destroy
-    # redirect_to lists_url, notice: 'List was successfully destroyed.'
+    redirect_to lists_url, notice: 'List was successfully destroyed.'
   end
 
   private

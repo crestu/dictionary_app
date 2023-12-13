@@ -4,6 +4,7 @@ class DictionaryController < ApplicationController
     @word = params[:word]
     @definition = dictionary_service.fetch_definition(@word) || {}
     @word_list = Word.all # Assuming Word model has a 'word' attribute
+    @current_user = current_user
   end
 
   def search

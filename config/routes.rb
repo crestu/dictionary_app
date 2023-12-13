@@ -10,11 +10,11 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :lists # Add other routes as needed
-  resources :words, only: [:show]
+  resources :words
 
   get "words", to: "words#show"
 
-  get "lists", to: "lists#show"
+  # get "lists", to: "lists#show"
 
   get 'search', to: 'dictionary#show'
 
@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   get 'home', to: "home#index"
 
   post '/add_to_dictionary', to: 'words#add_to_dictionary'
+
+  resources :lists
 
 
 
